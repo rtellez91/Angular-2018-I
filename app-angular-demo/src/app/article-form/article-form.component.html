@@ -1,0 +1,13 @@
+<div class="ui container">
+  <form class="ui form">    
+    <div class="field">
+      <label>Title</label>
+      <input name="title" required placeholder="Title" [(ngModel)]="article.title">
+    </div>
+    <div class="field">
+      <label>Link</label>
+      <input name="link" required placeholder="Link" [(ngModel)]="article.link">
+    </div>
+    <button class="ui button" type="button" (click)="save()">Save</button>
+  </form>
+</div>
