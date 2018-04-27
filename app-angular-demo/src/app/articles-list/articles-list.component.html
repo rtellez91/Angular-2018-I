@@ -1,3 +1,15 @@
+<div class="ui grid filter">
+  <div class="ui container">
+      <select class="ui select" (change)="change()" [(ngModel)]="filter._sort">
+        <option value="title">Title</option>
+        <option value="votes">Votes</option>
+      </select>
+      <select class="ui select" (change)="change()" [(ngModel)]="filter._order">
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+      </select>
+  </div>
+</div>
 <div class="ui grid posts">
   <app-article *ngFor="let article of articles" [article]="article" class="row"></app-article>
 </div>

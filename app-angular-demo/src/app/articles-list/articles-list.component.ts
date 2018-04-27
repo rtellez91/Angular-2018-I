@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../_models/article.model';
 import { ArticlesService } from '../shared/articles.service';
 import { Observer } from 'rxjs/Observer';
+import { ArticleFilter } from '../_models/article-filter.model';
 
 @Component({
   selector: 'app-articles-list',
@@ -13,7 +14,10 @@ export class ArticlesListComponent implements OnInit {
   articles:Article[];
   listObservable:any;
 
+  filter : ArticleFilter;
+  
   constructor(private articleService:ArticlesService) { 
+    this.filter = new ArticleFilter();
   }
 
   ngOnInit() {
@@ -25,7 +29,7 @@ export class ArticlesListComponent implements OnInit {
     return this.articles.sort((a:Article, b:Article)=> b.votes - a.votes);
   }
   loadList(){
-    this.articleService.getList().subscribe(
+    this.articleService.getList(this.filter).subscribe(
       result=>{
         this.articles= result;
       },err=>{
@@ -36,6 +40,13 @@ export class ArticlesListComponent implements OnInit {
       }
     );
   }
-  
+
+  change() : void {
+    this.articleService.getList(this.filter).subscribe(
+      result => {
+        this.articles = result;
+      }
+    )
+  } 
 
 }

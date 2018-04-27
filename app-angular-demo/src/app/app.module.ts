@@ -10,6 +10,7 @@ import { ManagerArticlesComponent } from './manager-articles/manager-articles.co
 import { ArticlesService } from './shared/articles.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleFormComponent } from './article-form/article-form.component';
+import { ArticleFilterComponent } from './article-filter/article-filter.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ArticleFormComponent } from './article-form/article-form.component';
     ArticlesListComponent,
     ArticleComponent,
     ManagerArticlesComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    ArticleFilterComponent
   ],
   imports: [
     BrowserModule,
